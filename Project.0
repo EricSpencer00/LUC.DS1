@@ -1,0 +1,31 @@
+class Main {
+
+  // QUESTION why is the parameter final?
+  // To make sure the function can't edit the variable
+  private static boolean isPalindrome(final String candidate) {
+    assert(candidate != null); // QUESTION what is this assertion for?
+    for(int i = 0; i < (int) candidate.length() / 2; i++) {
+      if(candidate.charAt(i) != candidate.charAt(candidate.length() - (1 + i))) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public static void main(final String[] args) {
+    assert(!isPalindrome("Hello"));
+    assert(!isPalindrome("Hello world!"));
+    assert(isPalindrome(""));
+    assert(isPalindrome("a"));
+    assert(isPalindrome("oo"));
+    assert(isPalindrome("aha"));
+    assert(isPalindrome("noon"));
+    assert(isPalindrome("racecar"));
+    assert(isPalindrome("amanaplanacanalpanama"));
+    // QUESTION what is the purpose of these assertions?
+    // To make sure the test words work
+    
+    System.out.println("Great, everything is working as expected!");
+    
+  }
+}
